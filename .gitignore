@@ -1,0 +1,41 @@
+# Essential Unity directories to ignore
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+
+# IDE and editor directories/files
+.vs/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
+
+# Other temporary or unnecessary files
+*.swp
+*.bak
+*.tmp
+*.swp
+*.pidb
+*.pdb
+*.mdb
+sysinfo.txt
+*.bak
+*.swp
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Builds
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# If using Addressables, consider keeping this. 
+# If not, or if you're okay with regenerating them, keep these ignored.
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
