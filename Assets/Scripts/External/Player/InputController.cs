@@ -3,10 +3,12 @@ using UnityEngine;
 public class InputController : MonoBehaviour
 {
     private FirstPersonMovement playerMovement;
+    private PlayerPuckup playerPickup;
     //public PlayerUI gameScreenManager;
 
     void Start()
     {
+        playerPickup = GetComponent<PlayerPickup>();
         playerMovement = GetComponent<FirstPersonMovement>();
         //gameScreenManager.isGamePaused = false;
     }
@@ -34,7 +36,7 @@ public class InputController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-
+            playerPickup.Pickup();
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
