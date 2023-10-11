@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Package : MonoBehaviour, IPickupable
 {
-    private bool isPickedUp = false;
+    public bool isPickedUp { get; set; }
     private Rigidbody rb;
 
     private void Start()
@@ -10,33 +10,28 @@ public class Package : MonoBehaviour, IPickupable
         rb = GetComponent<Rigidbody>();
         if (!rb)
         {
-            Debug.LogWarning("No Rigidbody found on Package object. Adding one by default.");
             rb = gameObject.AddComponent<Rigidbody>();
         }
     }
 
-    public void OnPickUp()
+    public void OnPickup()
     {
-        if(!isPickedUp)
+        if (!isPickedUp)
         {
-            Debug.Log("Picked up the package!");
-
             if (rb)
             {
                 rb.useGravity = false;
-                rb.velocity = Vector3.zero; 
+                rb.velocity = Vector3.zero;
             }
-            
+
             isPickedUp = true;
         }
     }
 
     public void OnDrop()
     {
-        if(isPickedUp)
+        if (isPickedUp)
         {
-            Debug.Log("Dropped the package!");
-
             if (rb)
             {
                 rb.useGravity = true;

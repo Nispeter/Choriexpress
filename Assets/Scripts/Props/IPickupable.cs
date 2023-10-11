@@ -1,6 +1,6 @@
 public interface IPickupable
 {
-    bool isPickedUp;
+    bool isPickedUp { get; set; }
     void OnPickup();
     void OnDrop();
 }

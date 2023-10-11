@@ -2,12 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UIHintController : MonoBehaviour
 {
-    public Text hintText;
+    public TextMeshProUGUI hintText;
     public string pickupKey = "Mouse Left Click";
-    private Vector3 offset = new Vector3(15, -15, 0); 
+    private Vector3 offset = new Vector3(0, -50, 0); 
 
     private void Update()
     {

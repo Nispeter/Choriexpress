@@ -6,6 +6,10 @@
 /[Bb]uilds/
 /[Ll]ogs/
 
+# TextMesh Pro files
+Assets/TextMesh Pro/
+Packages/com.unity.textmeshpro/
+
 # IDE and editor directories/files
 .vs/
 *.csproj

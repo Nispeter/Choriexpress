@@ -1,19 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CursorController : MonoBehaviour
 {
     public Camera playerCamera;
     public float interactDistance = 3.0f;
-    public Texture2D defaultCursor;
-    public Texture2D pickupableCursor;
+    public Sprite defaultCrosshair;
+    public Sprite pickupableCrosshair;
 
+    public Image crosshairImage;
     public UIHintController uiHintController;
+
+    private int _framesBetweenChecks = 5;
+    private int _currentFrame = 0;
 
     private void Update()
     {
-        CheckCursorChange();
+        _currentFrame++;
+        if (_currentFrame >= _framesBetweenChecks)
+        {
+            CheckCursorChange();
+            _currentFrame = 0;
+        }
     }
 
     void CheckCursorChange()
@@ -25,18 +33,18 @@ public class CursorController : MonoBehaviour
             IPickupable pickupable = hit.collider.GetComponent<IPickupable>();
             if (pickupable != null)
             {
-                UpdateCursor(pickupableCursor);
+                UpdateCrosshair(pickupableCrosshair);
                 uiHintController.ShowHint();
                 return;
             }
         }
 
-        UpdateCursor(defaultCursor);
+        UpdateCrosshair(defaultCrosshair);
         uiHintController.HideHint();
     }
 
-    public void UpdateCursor(Texture2D cursorTexture)
+    public void UpdateCrosshair(Sprite crosshairSprite)
     {
-        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+        crosshairImage.sprite = crosshairSprite;
     }
 }

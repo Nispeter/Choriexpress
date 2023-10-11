@@ -3,7 +3,7 @@ using UnityEngine;
 public class InputController : MonoBehaviour
 {
     private FirstPersonMovement playerMovement;
-    private PlayerPuckup playerPickup;
+    private PlayerPickup playerPickup;
     //public PlayerUI gameScreenManager;
 
     void Start()
