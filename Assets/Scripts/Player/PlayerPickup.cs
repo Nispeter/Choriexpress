@@ -34,7 +34,7 @@ public class PlayerPickup : MonoBehaviour
         if (heldObject == null)
         {
             Ray ray = new Ray(mainCam.transform.position, mainCam.transform.forward);
-            Debug.DrawLine(ray.origin, ray.origin + ray.direction * interactDistance, Color.green, 2.0f);
+            Debug.DrawLine(ray.origin, ray.origin + ray.direction * interactDistance, Color.red, 2.0f);
 
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, interactDistance))
