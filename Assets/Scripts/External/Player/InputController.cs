@@ -36,7 +36,7 @@ public class InputController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            playerPickup.Pickup();
+            playerPickup.Use();
         }
         if (Input.GetKeyDown(KeyCode.X))
         {

@@ -18,9 +18,9 @@ public class UIHintController : MonoBehaviour
         }
     }
 
-    public void ShowHint()
+    public void ShowHint(string type)
     {
-        hintText.text = $"Press {pickupKey} to pick up";
+        hintText.text = $"[{pickupKey}] {type}";
         hintText.enabled = true;
     }
 

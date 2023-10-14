@@ -1,4 +1,4 @@
-public interface IPickupable
+public interface IPickupable : IInteractable
 {
     bool isPickedUp { get; set; }
     void OnPickup();

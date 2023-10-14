@@ -6,7 +6,7 @@ public class CursorController : MonoBehaviour
     public Camera playerCamera;
     public float interactDistance = 3.0f;
     public Sprite defaultCrosshair;
-    public Sprite pickupableCrosshair;
+    public Sprite interactableCrosshair;
 
     public Image crosshairImage;
     public UIHintController uiHintController;
@@ -31,11 +31,11 @@ public class CursorController : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction * interactDistance, Color.green, 2.0f);
         if (Physics.Raycast(ray, out hit, interactDistance))
         {
-            IPickupable pickupable = hit.collider.GetComponent<IPickupable>();
-            if (pickupable != null)
+            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+            if (interactable != null)
             {
-                UpdateCrosshair(pickupableCrosshair);
-                uiHintController.ShowHint();
+                UpdateCrosshair(interactableCrosshair);
+                uiHintController.ShowHint(interactable.type);
                 return;
             }
         }

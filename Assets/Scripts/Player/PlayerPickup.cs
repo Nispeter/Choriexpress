@@ -6,7 +6,7 @@ public class PlayerPickup : MonoBehaviour
 {
     public float interactDistance = 2.0f;
     public Transform holdPosition; // A transform indicating where in front of the camera the object should be held.
-    private IPickupable heldObject;
+    private IInteractable heldObject;
     private Camera mainCam;
 
     void Start()
@@ -29,42 +29,62 @@ public class PlayerPickup : MonoBehaviour
         }
     }
 
-    public void Pickup()
+    public void Use()
     {
-        if (heldObject == null)
+        // If something is currently held
+        if (heldObject != null)
         {
-            Ray ray = new Ray(mainCam.transform.position, mainCam.transform.forward);
-            Debug.DrawLine(ray.origin, ray.origin + ray.direction * interactDistance, Color.red, 2.0f);
+            DropHeldObject();
+            return;  // Return immediately after dropping the held object
+        }
 
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, interactDistance))
+        Ray ray = new Ray(mainCam.transform.position, mainCam.transform.forward);
+        Debug.DrawLine(ray.origin, ray.origin + ray.direction * interactDistance, Color.red, 2.0f);
+
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, interactDistance))
+        {
+            // Try to get the IPickupable component from the hit object
+            IPickupable pickupable = hit.collider.GetComponent<IPickupable>();
+
+            // If it's a pickupable object
+            if (pickupable != null)
             {
-                IPickupable pickupable = hit.collider.GetComponent<IPickupable>();
-                if (pickupable != null)
+                PickupObject(pickupable);
+            }
+            // If it's not a pickupable object, then check if it's just interactable
+            else
+            {
+                IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+                if (interactable != null)
                 {
-                    heldObject = pickupable;
-
-                    Transform objTransform = ((Component)heldObject).transform;
-                    objTransform.SetParent(mainCam.transform); 
-                    objTransform.localPosition = holdPosition.localPosition;
-                    objTransform.localRotation = holdPosition.localRotation;
-
-                    heldObject.OnPickup();
+                    interactable.Interact();
                 }
             }
         }
-        else
-        {
-            Transform objTransform = ((Component)heldObject).transform;
-            objTransform.SetParent(null); // Remove the object's parent
-
-            Collider objCollider = ((Component)heldObject).GetComponent<Collider>();
-            if (objCollider) objCollider.enabled = true; // Reactivate the collider when dropping
-
-            heldObject.OnDrop();
-            heldObject = null;
-        }
     }
 
+    private void DropHeldObject()
+    {
+        Transform objTransform = ((Component)heldObject).transform;
+        objTransform.SetParent(null); // Remove the object's parent
 
+        Collider objCollider = ((Component)heldObject).GetComponent<Collider>();
+        if (objCollider) objCollider.enabled = true; // Reactivate the collider when dropping
+
+        heldObject.Interact();
+        heldObject = null;
+    }
+
+    private void PickupObject(IPickupable pickupable)
+    {
+        heldObject = pickupable;
+
+        Transform objTransform = ((Component)heldObject).transform;
+        objTransform.SetParent(mainCam.transform);
+        objTransform.localPosition = holdPosition.localPosition;
+        objTransform.localRotation = holdPosition.localRotation;
+
+        heldObject.Interact();
+    }
 }

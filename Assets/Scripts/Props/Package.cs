@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class Package : MonoBehaviour, IPickupable
 {
+    public string type { get; set; }
     public bool isPickedUp { get; set; }
     private Rigidbody rb;
 
     private void Start()
     {
+        type = "pickup";
         rb = GetComponent<Rigidbody>();
         if (!rb)
         {
@@ -14,30 +16,36 @@ public class Package : MonoBehaviour, IPickupable
         }
     }
 
-    public void OnPickup()
+    public void Interact()
     {
         if (!isPickedUp)
-        {
-            if (rb)
-            {
-                rb.useGravity = false;
-                rb.velocity = Vector3.zero;
-            }
+            OnPickup();
+        else
+            OnDrop();
+    }
 
-            isPickedUp = true;
+    public void OnPickup()
+    {
+
+        if (rb)
+        {
+            rb.useGravity = false;
+            rb.velocity = Vector3.zero;
         }
+
+        isPickedUp = true;
+
     }
 
     public void OnDrop()
     {
-        if (isPickedUp)
-        {
-            if (rb)
-            {
-                rb.useGravity = true;
-            }
 
-            isPickedUp = false;
+        if (rb)
+        {
+            rb.useGravity = true;
         }
+
+        isPickedUp = false;
+
     }
 }
