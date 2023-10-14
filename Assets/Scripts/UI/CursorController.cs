@@ -11,7 +11,7 @@ public class CursorController : MonoBehaviour
     public Image crosshairImage;
     public UIHintController uiHintController;
 
-    private int _framesBetweenChecks = 5;
+    private int _framesBetweenChecks = 20;
     private int _currentFrame = 0;
 
     private void Update()
@@ -28,6 +28,7 @@ public class CursorController : MonoBehaviour
     {
         Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+        Debug.DrawRay(ray.origin, ray.direction * interactDistance, Color.green, 2.0f);
         if (Physics.Raycast(ray, out hit, interactDistance))
         {
             IPickupable pickupable = hit.collider.GetComponent<IPickupable>();
