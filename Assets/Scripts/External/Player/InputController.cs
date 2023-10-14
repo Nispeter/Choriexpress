@@ -4,10 +4,12 @@ public class InputController : MonoBehaviour
 {
     private FirstPersonMovement playerMovement;
     private PlayerPickup playerPickup;
-    //public PlayerUI gameScreenManager;
+    public PauseMenu pauseMenu;
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         playerPickup = GetComponent<PlayerPickup>();
         playerMovement = GetComponent<FirstPersonMovement>();
         //gameScreenManager.isGamePaused = false;
@@ -48,7 +50,8 @@ public class InputController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-
+            if(pauseMenu.isGamePaused)pauseMenu.ResumeGame();
+            else pauseMenu.GamePause();
         }
     }
 

@@ -21,9 +21,6 @@ public class PlayerCamera : MonoBehaviour
     private void Start()
     {
         player = transform.root;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
         initialPosition = transform.localPosition;
     }
 
