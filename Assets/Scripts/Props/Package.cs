@@ -5,10 +5,14 @@ public class Package : MonoBehaviour, IPickupable
     public string type { get; set; }
     public bool isPickedUp { get; set; }
     private Rigidbody rb;
+    public bool isPickeable { get; set;  }
+    public bool isCursed { get; set; }
 
     private void Start()
     {
         type = "pickup";
+        isPickeable = true;
+        isCursed = true;
         rb = GetComponent<Rigidbody>();
         if (!rb)
         {
