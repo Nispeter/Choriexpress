@@ -15,6 +15,7 @@ public class CountDownTimerCube : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CountdownText.color = Color.white;
         CurrentTime = StartingTime;
         if (dayManager == null)
         {
@@ -34,10 +35,16 @@ public class CountDownTimerCube : MonoBehaviour
         CountdownText.text = CurrentTime.ToString("F1");
         // Slider.value = CurrentTime;
         if (CurrentTime <= 5) CountdownText.color = Color.red;
-        if (!TimeManagerScript.Instance.IsGamePaused &&  CurrentTime <= 0)
+        if (!TimeManagerScript.Instance.IsGamePaused && CurrentTime <= 0)
         {
             CurrentTime = 0f;
             dayManager.EndDay();
         }
+    }
+
+    public void ResetTimer()
+    {
+        CurrentTime = StartingTime; // Reset the timer to its starting value
+        CountdownText.color = Color.white; // Reset the text color, assuming default is white
     }
 }

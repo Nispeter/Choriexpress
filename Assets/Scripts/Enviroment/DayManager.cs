@@ -6,11 +6,15 @@ public class DayManager : MonoBehaviour
 {
     public static int currentDay = 1;
     public int maxDays = 3;
-    public GameObject[] DailyContexts; // This array will hold the canvases for each day's context.
+    public GameObject[] DailyContexts;
     private GameObject CurrentContext;
-    
+
     public GameObject InGameUI;
     private bool gameStarted = false;
+
+    public GameObject player;
+    public Transform playerSpawnPosition;
+    public CountDownTimerCube timer;
 
     private void Start()
     {
@@ -23,37 +27,74 @@ public class DayManager : MonoBehaviour
         {
             TimeManagerScript.Instance.ResumeGame();
             gameStarted = true;
-            CurrentContext.SetActive(false); // Hide the current day's context canvas.
-            InGameUI.SetActive(true); // Activate the in-game UI.
+            CurrentContext.SetActive(false);
+            InGameUI.SetActive(true);
+        }
+    }
+
+    private void EliminateExistingPackages()
+    {
+        GameObject[] existingPackages = GameObject.FindGameObjectsWithTag("Package");
+        foreach (GameObject package in existingPackages)
+        {
+            Destroy(package);
+        }
+    }
+
+    private void ResetPlayerPosition()
+    {   
+        if (player != null)
+        {
+            player.transform.position = playerSpawnPosition.position;
+            player.transform.rotation = Quaternion.identity;
+        }
+        else
+        {
+            Debug.LogError("Player reference is missing in DayManager!");
         }
     }
 
     public void StartDay()
     {
-        InGameUI.SetActive(false); // Deactivate the in-game UI at the start of the day.
-        StartContext(); // Initialize the current day's context canvas.
+        ResetPlayerPosition();
+        EliminateExistingPackages();
+        InGameUI.SetActive(false);
+        StartContext();
     }
-
     public void EndDay()
     {
         TimeManagerScript.Instance.PauseGame();
         Debug.Log("Day ended");
-        if (currentDay < maxDays) currentDay++;
-        else EndGame();
-    }
 
-    private void EndGame() 
+        if (timer != null)
+        {
+            timer.ResetTimer(); // Assuming you have a ResetTimer method in CountDownTimerCube
+        }
+
+        if (currentDay < maxDays)
+        {
+            currentDay++;
+            StartDay(); // Start the game again if it's not the final day
+        }
+        else
+        {
+            EndGame();
+        }
+    }
+    private void EndGame()
     {
-        // You can add logic for ending the game here.
+                    TimeManagerScript.Instance.PauseGame();
+                    InGameUI.SetActive(false);
+                    PointCounter.Instance.EndCount();
     }
 
     private void StartContext()
     {
-        if (CurrentContext != null) 
-            CurrentContext.SetActive(false); // Deactivate the previous day's context if any.
+        if (CurrentContext != null)
+            CurrentContext.SetActive(false);
         gameStarted = false;
         TimeManagerScript.Instance.PauseGame();
         CurrentContext = DailyContexts[currentDay - 1];
-        CurrentContext.SetActive(true); // Activate the current day's context.
+        CurrentContext.SetActive(true);
     }
 }

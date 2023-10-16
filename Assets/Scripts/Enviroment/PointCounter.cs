@@ -1,49 +1,73 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
+using TMPro;
 
 public class PointCounter : MonoBehaviour
 {
+    public static PointCounter Instance { get; private set; }
+
     public int score = 0;
-    private string saveFilePath;
-    public void AddScore(int points)
+    public TextMeshProUGUI scoreText;
+    public GameObject scoreCanvas;
+    public GameObject looseCanvas;
+
+    private void Awake()
     {
-        score += points;
-    }
-    public void SubScore(int points)
-    {
-        score -= points;
-    }
-    public void SaveDailyScore()
-    {
-        string scoreEntry = $"Day {DayManager.currentDay} : {score} points\n";
-        saveFilePath = Path.Combine(Application.persistentDataPath, "dailyScores.txt");
-    }
-    public Dictionary<int, int> LoadDailyScores()
-    {
-        Dictionary<int, int> dailyScores = new Dictionary<int, int>();
-        if (File.Exists(saveFilePath))
+
+        if (Instance == null)
         {
-            string[] lines = File.ReadAllLines(saveFilePath);
-            foreach (string line in lines)
-            {
-                string[] parts = line.Split(':'); // Split the line at the colon
-                if (parts.Length == 2) // Ensure there are two parts
-                {
-                    int day = int.Parse(parts[0].Replace("Day", "").Trim()); // Parse the day
-                    int score = int.Parse(parts[1].Replace("points", "").Trim()); // Parse the score
-                    dailyScores[day] = score;
-                }
-            }
+            Instance = this;
         }
         else
         {
-            Debug.LogError("Scores file does not exist!");
+            Destroy(gameObject);
         }
+    }
 
-        return dailyScores;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            AddScore(1000);
+        }
+    }
+
+    public void AddScore(int points)
+    {
+        score += points;
+        UpdateScoreText();
+    }
+
+    public void SubScore(int points)
+    {
+        score -= points;
+        UpdateScoreText();
+    }
+
+    private void UpdateScoreText()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text =  score+"$";
+        }
+    }
+
+    public void EndCount()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        ActivateScoreCanvas();
+    }
+    public void ActivateScoreCanvas()
+    {
+        if(score >= 5000)
+            scoreCanvas.SetActive(true);
+        else 
+            looseCanvas.SetActive(true);
+
     }
 }
+
 
 

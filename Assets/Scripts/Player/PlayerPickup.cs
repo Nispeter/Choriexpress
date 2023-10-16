@@ -12,6 +12,11 @@ public class PlayerPickup : MonoBehaviour
     void Start()
     {
         mainCam = Camera.main;
+        CursorController cursorController = FindObjectOfType<CursorController>();
+        if (cursorController != null)
+        {
+            cursorController.SetPlayerCamera(mainCam);
+        }
     }
 
     private void Update()
