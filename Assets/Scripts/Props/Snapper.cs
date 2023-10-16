@@ -13,6 +13,7 @@ public class snapToTable : MonoBehaviour
     public float snapOffsetX;
     public float snapOffsetY;
     public float snapOffsetZ;
+    private bool _beingUsed;
     private void Start()
     {
         _collider = GetComponent<BoxCollider>();
@@ -26,18 +27,22 @@ public class snapToTable : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("HIT");
-        if (collision.gameObject.name == "Package")
+        if (collision.gameObject.name == "Package" || !_beingUsed)
         {
             //collision.rigidbody.useGravity = false;
             Vector3 offset = Vector3.zero;
             offset.x += snapOffsetX;
             offset.y += snapOffsetY;
             offset.z += snapOffsetZ;
-            collision.transform.position = gameObject.transform.position + offset;
-            // collision.rigidbody.useGravity = false;
-            // collision.rigidbody.velocity = Vector3.zero;
-            // collision.rigidbody.angularVelocity = Vector3.zero;
             collision.rigidbody.isKinematic = true;
+            collision.transform.position = gameObject.transform.position + offset;
+            collision.transform.rotation = gameObject.transform.rotation;
+            Package package = collision.gameObject.GetComponent<Package>();
+            package.isPickeable = false;
+            package.isPickedUp = false;
+
+            _beingUsed = true;
+
         }
     }
 }

@@ -6,7 +6,7 @@ public class PlayerPickup : MonoBehaviour
 {
     public float interactDistance = 2.0f;
     public Transform holdPosition; // A transform indicating where in front of the camera the object should be held.
-    private IInteractable heldObject;
+    private IPickupable heldObject;
     private Camera mainCam;
 
     void Start()
@@ -26,6 +26,10 @@ public class PlayerPickup : MonoBehaviour
             Transform objTransform = ((Component)heldObject).transform;
             objTransform.localPosition = holdPosition.localPosition;
             objTransform.localRotation = holdPosition.localRotation;
+            if (!heldObject.isPickedUp || !heldObject.isPickeable)
+            {
+                DropHeldObject();
+            }
         }
     }
 
@@ -48,7 +52,7 @@ public class PlayerPickup : MonoBehaviour
             IPickupable pickupable = hit.collider.GetComponent<IPickupable>();
 
             // If it's a pickupable object
-            if (pickupable != null)
+            if (pickupable != null && pickupable.isPickeable)
             {
                 PickupObject(pickupable);
             }
