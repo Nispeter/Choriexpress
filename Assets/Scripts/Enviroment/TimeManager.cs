@@ -1,18 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeManager : MonoBehaviour
+public class TimeManagerScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static TimeManagerScript Instance { get; private set; }
+
+    public bool IsGamePaused { get; private set; }
+
+    private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PauseGame()
     {
-        
+        Time.timeScale = 0f;
+        IsGamePaused = true;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f;
+        IsGamePaused = false;
     }
 }

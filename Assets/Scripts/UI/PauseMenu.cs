@@ -8,7 +8,7 @@ public class PauseMenu : GameManager
     public GameObject pauseCanvas;
     public GameObject inGameCanvas;
     void Start(){
-        isGamePaused = false;
+        isGamePaused = TimeManagerScript.Instance.IsGamePaused;
     }
     public override void GamePause(){
         base.GamePause();
@@ -16,7 +16,7 @@ public class PauseMenu : GameManager
         pauseCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        isGamePaused=true;
+        TimeManagerScript.Instance.PauseGame();
     }
     public void ResumeGame(){
         Time.timeScale = 1f;
@@ -24,6 +24,6 @@ public class PauseMenu : GameManager
         pauseCanvas.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        isGamePaused=false;
+        TimeManagerScript.Instance.ResumeGame();
     }
 }
