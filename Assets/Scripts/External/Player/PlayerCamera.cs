@@ -26,6 +26,9 @@ public class PlayerCamera : MonoBehaviour
 
     private void Update()
     {
+        if(!DayManager.Instance.InGameUI.activeSelf){
+            return;
+        }
         HandleShake();
         HandleInput();
 

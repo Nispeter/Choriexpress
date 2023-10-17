@@ -7,7 +7,7 @@ using TMPro;
 public class CountDownTimer : MonoBehaviour
 {
     float CurrentTime = 0f;
-    float StartingTime = 10f;
+    float StartingTime = 5f;
 
     [SerializeField] TMP_Text CountdownText;
     [SerializeField] private Slider Slider;
@@ -15,6 +15,7 @@ public class CountDownTimer : MonoBehaviour
     void Start()
     {
         CurrentTime = StartingTime;
+        CountdownText.color = Color.black;
         Slider.maxValue = CurrentTime;
     }
 
@@ -27,7 +28,8 @@ public class CountDownTimer : MonoBehaviour
         Slider.value = CurrentTime;
         if(CurrentTime <= 5) CountdownText.color = Color.red;
         if(CurrentTime <= 0)
-        {
+        {   
+            GetComponentInParent<Package>().FailedCurse();
             CurrentTime = 0f;
             Slider.value = CurrentTime;
         }

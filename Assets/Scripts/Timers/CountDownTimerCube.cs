@@ -7,7 +7,7 @@ using TMPro;
 public class CountDownTimerCube : MonoBehaviour
 {
     float CurrentTime = 0f;
-    float StartingTime = 10f;
+    float StartingTime = 30f;
 
     [SerializeField] DayManager dayManager;
     [SerializeField] TMP_Text CountdownText;

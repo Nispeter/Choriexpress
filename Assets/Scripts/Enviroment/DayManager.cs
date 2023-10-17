@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DayManager : MonoBehaviour
 {
+    public static DayManager Instance { get; private set; }
     public static int currentDay = 1;
     public int maxDays = 3;
     public GameObject[] DailyContexts;
@@ -20,8 +21,21 @@ public class DayManager : MonoBehaviour
     {
         currentDay = 1;
         StartDay();
+        
     }
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Update()
     {
         if (!gameStarted && Input.GetKeyDown(KeyCode.F))

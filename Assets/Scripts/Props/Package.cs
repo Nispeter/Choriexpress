@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class Package : MonoBehaviour, IPickupable
 {
@@ -7,9 +8,12 @@ public class Package : MonoBehaviour, IPickupable
     private Rigidbody rb;
     public bool isPickeable { get; set;  }
     public bool isCursed { get; set; }
-
+    public GameObject curseUI;
+    public TextMeshProUGUI curseText;  
+    
     private void Start()
     {
+        
         type = "pickup";
         isPickeable = true;
         isCursed = true;
@@ -20,10 +24,32 @@ public class Package : MonoBehaviour, IPickupable
         }
     }
 
+    public void FailedCurse(){
+        // MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+        // meshRenderer.material.color = Color.red;
+        curseUI.SetActive(false);
+        DayManager.Instance.InGameUI.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = false;
+        PointCounter.Instance.SubScore(200);
+        
+    }
+
     public void Interact()
     {
         if (!isPickedUp)
-            OnPickup();
+        {
+            // 
+            if(isCursed){
+                curseUI.SetActive(true);
+                DayManager.Instance.InGameUI.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }else{
+                OnPickup();
+            }
+
+        }
         else
             OnDrop();
     }
@@ -40,7 +66,15 @@ public class Package : MonoBehaviour, IPickupable
         isPickedUp = true;
 
     }
-
+    public void DeactivateCurse(){
+        curseUI.SetActive(false);
+        DayManager.Instance.InGameUI.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = false;
+        // MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+        // meshRenderer.material.color = Color.green;
+        PointCounter.Instance.AddScore(100);
+    }
     public void OnDrop()
     {
 
