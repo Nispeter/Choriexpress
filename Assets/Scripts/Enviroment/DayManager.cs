@@ -18,12 +18,13 @@ public class DayManager : MonoBehaviour
 
     private void Start()
     {
+        currentDay = 1;
         StartDay();
     }
 
     private void Update()
     {
-        if (!gameStarted && Input.GetKeyDown(KeyCode.E))
+        if (!gameStarted && Input.GetKeyDown(KeyCode.F))
         {
             TimeManagerScript.Instance.ResumeGame();
             gameStarted = true;
