@@ -17,7 +17,9 @@ public class InputController : MonoBehaviour
 
     private void Update()
     {
-
+        if(!DayManager.Instance.InGameUI.activeSelf){
+            return;
+        }
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
         bool isSprinting = Input.GetKey(KeyCode.LeftShift);
