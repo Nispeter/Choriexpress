@@ -26,7 +26,7 @@ public class Typing: MonoBehaviour
         GenerateRandomWord();
     }
     private void Recolor(int i, bool correction){
-        if(curse == 1){
+        if(curse == 1 || curse == 4){
                 int meshIndex = targetText.textInfo.characterInfo[i].materialReferenceIndex;
                 int vertexIndex = targetText.textInfo.characterInfo[i].vertexIndex;
                 Color32[] vertexColors = targetText.textInfo.meshInfo[meshIndex].colors32;
@@ -71,7 +71,7 @@ public class Typing: MonoBehaviour
             targetText.color = Color.red; 
             targetText.UpdateVertexData(TMP_VertexDataUpdateFlags.All);
         }else if(previousSize > userInput.Length){
-            if(curse == 1){
+            if(curse == 1 || curse == 4){
                 //Debug.Log(userInput.Length);
                 int meshIndex = targetText.textInfo.characterInfo[userInput.Length].materialReferenceIndex;
                 int vertexIndex = targetText.textInfo.characterInfo[userInput.Length].vertexIndex;
@@ -92,10 +92,10 @@ public class Typing: MonoBehaviour
             
         }
         else if(curse!=3){
-            if (userInput[userInput.Length-1]==currentWord[userInput.Length-1] && curse == 1){
+            if (userInput[userInput.Length-1]==currentWord[userInput.Length-1] && (curse == 1 || curse ==4)){
                 Recolor(userInput.Length-1, true);
                 
-            }else if(curse == 1){
+            }else if((curse == 1 || curse ==4)){
                 Recolor(userInput.Length-1, false);
             }else if(userInput[userInput.Length-1]==reversed[userInput.Length-1] && curse == 2){
                 Recolor(userInput.Length-1, true);
@@ -104,7 +104,7 @@ public class Typing: MonoBehaviour
             }
         }
         // Compara el texto ingresado por el usuario con la palabra objetivo actual.
-        if ((userInput == currentWord && curse == 1) || (userInput == reversed && curse == 2) || (userInput.Length >=30 && curse == 3))
+        if ((userInput == currentWord && (curse == 1 || curse ==4)) || (userInput == reversed && curse == 2) || (userInput.Length >=30 && curse == 3))
         {
             Debug.Log("¡Correcto! Palabra completada: " + currentWord);
             // Realiza las acciones necesarias cuando el usuario completa la palabra.

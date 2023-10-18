@@ -27,11 +27,12 @@ public class Package : MonoBehaviour, IPickupable
     public void FailedCurse(){
         // MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
         // meshRenderer.material.color = Color.red;
+        Debug.Log("CURSE FAILED");  
         curseUI.SetActive(false);
         DayManager.Instance.InGameUI.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        PointCounter.Instance.SubScore(200);
+        PointCounter.Instance.SubScore(100);
         
     }
 
@@ -69,11 +70,11 @@ public class Package : MonoBehaviour, IPickupable
     public void DeactivateCurse(){
         curseUI.SetActive(false);
         DayManager.Instance.InGameUI.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         // MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
         // meshRenderer.material.color = Color.green;
-        PointCounter.Instance.AddScore(100);
+        PointCounter.Instance.AddScore(200);
     }
     public void OnDrop()
     {

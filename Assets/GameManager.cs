@@ -1,8 +1,11 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject htpGameObject; 
+
     public void GoPlay(){
         SceneManager.LoadScene("InGame");
     }
@@ -18,5 +21,19 @@ public class GameManager : MonoBehaviour
     }
     public virtual void GamePause(){
         Time.timeScale = 0f;
+    }
+
+    public void GoHTP(){
+        if (htpGameObject != null) 
+        {
+            htpGameObject.gameObject.SetActive(true);
+        }
+    }
+
+    public void ExitHTP(){
+        if (htpGameObject != null) 
+        {
+            htpGameObject.gameObject.SetActive(false);
+        }
     }
 }

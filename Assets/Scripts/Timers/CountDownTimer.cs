@@ -7,7 +7,7 @@ using TMPro;
 public class CountDownTimer : MonoBehaviour
 {
     float CurrentTime = 0f;
-    float StartingTime = 5f;
+    public float StartingTime = 5f;
 
     [SerializeField] TMP_Text CountdownText;
     [SerializeField] private Slider Slider;
@@ -30,8 +30,9 @@ public class CountDownTimer : MonoBehaviour
         if(CurrentTime <= 0)
         {   
             GetComponentInParent<Package>().FailedCurse();
-            CurrentTime = 0f;
+            CurrentTime = StartingTime;
             Slider.value = CurrentTime;
         }
     }
+
 }

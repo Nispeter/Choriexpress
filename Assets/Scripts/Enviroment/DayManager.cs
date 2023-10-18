@@ -73,6 +73,8 @@ public class DayManager : MonoBehaviour
     {
         ResetPlayerPosition();
         EliminateExistingPackages();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         InGameUI.SetActive(false);
         StartContext();
     }
@@ -98,9 +100,9 @@ public class DayManager : MonoBehaviour
     }
     private void EndGame()
     {
-                    TimeManagerScript.Instance.PauseGame();
-                    InGameUI.SetActive(false);
-                    PointCounter.Instance.EndCount();
+        TimeManagerScript.Instance.PauseGame();
+        InGameUI.SetActive(false);
+        PointCounter.Instance.EndCount();
     }
 
     private void StartContext()
