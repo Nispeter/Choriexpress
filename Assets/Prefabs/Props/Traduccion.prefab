@@ -389,8 +389,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2314336131665920950, guid: 36545504a2e401d4abf997ccbf0776d0, type: 3}
+      propertyPath: Alien
+      value: 
+      objectReference: {fileID: 11400000, guid: b11fcc8fd33894647b61802c288b8805, type: 2}
+    - target: {fileID: 2314336131665920950, guid: 36545504a2e401d4abf997ccbf0776d0, type: 3}
       propertyPath: curse
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3275189507514368823, guid: 36545504a2e401d4abf997ccbf0776d0, type: 3}
       propertyPath: m_LocalScale.x

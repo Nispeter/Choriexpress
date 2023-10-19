@@ -25,10 +25,10 @@ public class Package : MonoBehaviour, IPickupable
     }
 
     public void FailedCurse(){
-        // MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-        // meshRenderer.material.color = Color.red;
         Debug.Log("CURSE FAILED");  
+        GetComponentInChildren<TMP_InputField>().text = "";
         curseUI.SetActive(false);
+        
         DayManager.Instance.InGameUI.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -46,6 +46,7 @@ public class Package : MonoBehaviour, IPickupable
                 DayManager.Instance.InGameUI.SetActive(false);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                GetComponentInChildren<TMP_InputField>().Select();
             }else{
                 OnPickup();
             }
