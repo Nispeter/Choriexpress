@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 1938467985}
     - target: {fileID: 782142857132566549, guid: 35ff71ed5ba746945a41a6300808b404, type: 3}
       propertyPath: StartingTime
-      value: 120
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2762415142798587092, guid: 35ff71ed5ba746945a41a6300808b404, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2316,8 +2316,8 @@ Transform:
   m_GameObject: {fileID: 583493475}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -3.3662872, y: 0.32, z: -0.19000053}
-  m_LocalScale: {x: 0.078177504, y: 0.31271002, z: 0.078177504}
+  m_LocalPosition: {x: -3.515, y: 0.286, z: -0.116}
+  m_LocalScale: {x: 0.063666195, y: 0.25466478, z: 0.063666195}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8604880474665373515}
@@ -2946,6 +2946,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6153091187148882791, guid: 35ff71ed5ba746945a41a6300808b404, type: 3}
   m_PrefabInstance: {fileID: 34350327}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &829742213 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 782142857132566549, guid: 35ff71ed5ba746945a41a6300808b404, type: 3}
+  m_PrefabInstance: {fileID: 34350327}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cddbf0d2dff7349838448966ddd2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &858767896
 GameObject:
   m_ObjectHideFlags: 0
@@ -3452,7 +3463,7 @@ MonoBehaviour:
   - {fileID: 1345392660606794084, guid: 5f4a6f00ba867aa4fbccf4a702f3d5d8, type: 3}
   - {fileID: 1345392660606794084, guid: c75a50ba1ac232a41aa0952c63d08693, type: 3}
   spawnPoint: {fileID: 992729406}
-  spawnInterval: 4
+  spawnInterval: 10
 --- !u!4 &992729406
 Transform:
   m_ObjectHideFlags: 0
@@ -5974,7 +5985,7 @@ MonoBehaviour:
   InGameUI: {fileID: 324096365}
   player: {fileID: 8446171858051927653}
   playerSpawnPosition: {fileID: 628720701}
-  timer: {fileID: 0}
+  timer: {fileID: 829742213}
 --- !u!114 &1938467986
 MonoBehaviour:
   m_ObjectHideFlags: 0

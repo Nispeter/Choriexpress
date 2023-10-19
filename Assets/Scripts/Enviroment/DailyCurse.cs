@@ -4,7 +4,7 @@ using System.Collections;
 
 public class DailyCurse : MonoBehaviour
 {
-    public int day = 1;
+    /*public int day = 1;
     private FirstPersonController playerController;
 
     private void Start()
@@ -53,5 +53,5 @@ public class DailyCurse : MonoBehaviour
                 randomPackage.transform.position += new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
             }
         }
-    }
+    }*/
 }
