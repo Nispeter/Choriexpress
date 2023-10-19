@@ -102,8 +102,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334a0ef721ef58b41be0c2a30e42b537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartingTime: 5
   CountdownText: {fileID: 8318581410590970763}
   Slider: {fileID: 6619373247781521624}
+  SFX: {fileID: 0}
+  Alarm: {fileID: 8300000, guid: f397ac88d3e8fa442a871de907d3c5ef, type: 3}
+  Tick: {fileID: 8300000, guid: 36aa4c9ea98cfcc42adbfdaf15c35e81, type: 3}
 --- !u!1 &3569668423207979493
 GameObject:
   m_ObjectHideFlags: 0
