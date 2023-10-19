@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Cleanse the curse
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 32e6a74669cf7f343abe26a7e03fbca1, type: 2}
-  m_sharedMaterial: {fileID: 5982960174315033393, guid: 32e6a74669cf7f343abe26a7e03fbca1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -201,8 +201,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 32e6a74669cf7f343abe26a7e03fbca1, type: 2}
-  m_sharedMaterial: {fileID: 5982960174315033393, guid: 32e6a74669cf7f343abe26a7e03fbca1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -638,8 +638,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Cleanse the curse
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 32e6a74669cf7f343abe26a7e03fbca1, type: 2}
-  m_sharedMaterial: {fileID: 5982960174315033393, guid: 32e6a74669cf7f343abe26a7e03fbca1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -780,3 +780,5 @@ MonoBehaviour:
   targetText: {fileID: 9066986621950047582}
   Alien: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   curse: 0
+  SFX: {fileID: 0}
+  Type: {fileID: 8300000, guid: fbd0dfaa528e8de4bb17278eceaf9c72, type: 3}

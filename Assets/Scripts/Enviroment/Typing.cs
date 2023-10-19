@@ -15,7 +15,8 @@ public class Typing: MonoBehaviour
     private bool _isParentCursed = true;
     public int curse;
     Color _initialColor;
-
+    public AudioSource SFX;
+    public AudioClip Type;
     private void Start()
     {
         // // Configura un evento para detectar cambios en el InputField en tiempo real.
@@ -56,7 +57,8 @@ public class Typing: MonoBehaviour
     }
     private void OnInputValueChanged(string userInput)
     {   
-        
+        SFX.clip = Type;
+        SFX.Play();
         if(!_isParentCursed){
             return;
         }

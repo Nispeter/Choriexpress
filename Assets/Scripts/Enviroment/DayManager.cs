@@ -16,6 +16,7 @@ public class DayManager : MonoBehaviour
     public GameObject player;
     public Transform playerSpawnPosition;
     public CountDownTimerCube timer;
+    //public GameObject dailyCursePrefab; 
 
     private void Start()
     {
@@ -47,14 +48,15 @@ public class DayManager : MonoBehaviour
         }
     }
 
+    /*private GameObject[] existingPackages;
     private void EliminateExistingPackages()
     {
-        GameObject[] existingPackages = GameObject.FindGameObjectsWithTag("Package");
+        existingPackages = GameObject.FindGameObjectsWithTag("Package");
         foreach (GameObject package in existingPackages)
         {
             Destroy(package);
         }
-    }
+    }*/
 
     private void ResetPlayerPosition()
     {   
@@ -113,5 +115,9 @@ public class DayManager : MonoBehaviour
         TimeManagerScript.Instance.PauseGame();
         CurrentContext = DailyContexts[currentDay - 1];
         CurrentContext.SetActive(true);
+        GameObject curseInstance = Instantiate(dailyCursePrefab);
+        DailyCurse dailyCurse = curseInstance.GetComponent<DailyCurse>();
+        if (dailyCurse)
+            dailyCurse.day = currentDay;
     }
 }
