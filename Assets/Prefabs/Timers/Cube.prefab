@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8499187403470587166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.515}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -182,8 +182,8 @@ GameObject:
   - component: {fileID: 6153091187148882791}
   - component: {fileID: 4343843942986524913}
   - component: {fileID: 6466909621187000290}
+  - component: {fileID: 782142857132566549}
   - component: {fileID: 8225562233853254096}
-  - component: {fileID: 8326963106413850215}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -200,7 +200,7 @@ RectTransform:
   m_GameObject: {fileID: 8551028353475018909}
   m_LocalRotation: {x: -0, y: -0.99999994, z: -0, w: 0.00041422993}
   m_LocalPosition: {x: 0, y: 0, z: -35.050987}
-  m_LocalScale: {x: 917.91425, y: 345.6977, z: 139.20403}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2762415142798587092}
@@ -261,6 +261,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &782142857132566549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8551028353475018909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cddbf0d2dff7349838448966ddd2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingTime: 30
+  dayManager: {fileID: 0}
+  CountdownText: {fileID: 6877949137578995874}
 --- !u!65 &8225562233853254096
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -282,16 +297,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8326963106413850215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8551028353475018909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c2cc73f524940c4a80fea4522188bee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CountdownText: {fileID: 6877949137578995874}
