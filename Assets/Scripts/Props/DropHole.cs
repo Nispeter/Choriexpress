@@ -9,6 +9,8 @@ public class DropHole : MonoBehaviour
     // Start is called before the first frame update
     private BoxCollider _collider;
     public float secondsUntilPackageIsDestroyed = 8;
+
+    public AudioSource BoxHittingGround;
     void Start()
     {
         _collider = GetComponent<BoxCollider>();
@@ -31,6 +33,7 @@ public class DropHole : MonoBehaviour
                 Debug.Log("Paquete maldito ha sido lanzado por el agujero");
                 //TODO: RESTAR PUNTOS
             }
+            BoxHittingGround.Play();
         }
         
         Debug.Log("Destruyendo objeto");

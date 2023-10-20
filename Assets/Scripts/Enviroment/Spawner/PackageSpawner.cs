@@ -8,6 +8,8 @@ public class PackageSpawner : MonoBehaviour
     public Transform spawnPoint;        
      public float spawnInterval = 2.0f; 
 
+    public AudioSource BoxHittingGround;
+
     private void Start()
     {
         // Start spawning packages every spawnInterval seconds
@@ -18,5 +20,6 @@ public class PackageSpawner : MonoBehaviour
     {
         GameObject packageToSpawn = packagePrefabs[Random.Range(0, packagePrefabs.Length)];
         Instantiate(packageToSpawn, spawnPoint.position, Quaternion.identity);
+        BoxHittingGround.Play();
     }
 }
