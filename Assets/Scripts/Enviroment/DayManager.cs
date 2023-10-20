@@ -18,7 +18,7 @@ public class DayManager : MonoBehaviour
     public CountDownTimerCube timer;
     public AudioSource SFX;
     public AudioClip honk;
-    public GameObject dailyCursePrefab; 
+    public GameObject dailyCursePrefab;
 
     private GameObject curseInstance;
     private DailyCurse dailyCurse;
@@ -63,6 +63,14 @@ public class DayManager : MonoBehaviour
         existingPackages = GameObject.FindGameObjectsWithTag("Package");
         foreach (GameObject package in existingPackages)
         {
+            // Check if the package is currently being held by the player
+            IPickupable pickupable = package.GetComponent<IPickupable>();
+            if (pickupable != null && pickupable == FindObjectOfType<PlayerPickup>().heldObject)
+            {
+                // Make the player drop the package before destroying it
+                FindObjectOfType<PlayerPickup>().DropHeldObject();
+            }
+
             Destroy(package);
         }
     }
@@ -135,7 +143,7 @@ public class DayManager : MonoBehaviour
         TimeManagerScript.Instance.PauseGame();
         CurrentContext = DailyContexts[currentDay - 1];
         CurrentContext.SetActive(true);
-        
+
         if (dailyCurse)
             dailyCurse.ActivateCurse(currentDay);
     }

@@ -50,7 +50,7 @@ public class InputController : MonoBehaviour
         {
 
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             if(pauseMenu.isGamePaused)pauseMenu.ResumeGame();
             else pauseMenu.GamePause();
