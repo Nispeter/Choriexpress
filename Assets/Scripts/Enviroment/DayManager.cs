@@ -16,13 +16,15 @@ public class DayManager : MonoBehaviour
     public GameObject player;
     public Transform playerSpawnPosition;
     public CountDownTimerCube timer;
+    public AudioSource SFX;
+    public AudioClip honk;
     //public GameObject dailyCursePrefab; 
 
     private void Start()
     {
         currentDay = 1;
         StartDay();
-
+        
     }
 
     private void Awake()
@@ -45,6 +47,8 @@ public class DayManager : MonoBehaviour
             gameStarted = true;
             CurrentContext.SetActive(false);
             InGameUI.SetActive(true);
+            SFX.clip = honk;
+            SFX.Play();
         }
     }
 
@@ -59,22 +63,11 @@ public class DayManager : MonoBehaviour
     }
 
     private void ResetPlayerPosition()
-    {
+    {   
         if (player != null)
         {
-            CharacterController charController = player.GetComponent<CharacterController>();
-            if (charController != null)
-            {
-                charController.enabled = false; // disable character controller
-                player.transform.position = playerSpawnPosition.position;
-                player.transform.rotation = playerSpawnPosition.rotation;
-                charController.enabled = true; // enable character controller
-            }
-            else
-            {
-                player.transform.position = playerSpawnPosition.position;
-                player.transform.rotation = Quaternion.identity;
-            }
+            player.transform.position = playerSpawnPosition.position;
+            player.transform.rotation = Quaternion.identity;
         }
         else
         {
