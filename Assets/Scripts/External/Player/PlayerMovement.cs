@@ -59,6 +59,9 @@ public class FirstPersonMovement : MonoBehaviour
     {
         invertControls = !invertControls;
     }
+    public void ResetControls(){
+        invertControls = false;
+    }
 
     public void Jump()
     {

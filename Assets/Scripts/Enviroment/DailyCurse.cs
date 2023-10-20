@@ -72,15 +72,16 @@ public class DailyCurse : MonoBehaviour
 
     public void StopCurrentCurse()
     {
-        if (currentCurse != null)
+        if (day == 2)
+        {
+            playerController.ResetControls(); // Ensure the controls are reverted if day is 2
+        }
+        else if (currentCurse != null)
         {
             StopCoroutine(currentCurse);
             currentCurse = null;
             Debug.Log("Curse stopped");
         }
-        if (day == 2)
-        {
-            playerController.ToggleInvertedControls(); // Ensure the controls are reverted if day is 2
-        }
+        
     }
 }
