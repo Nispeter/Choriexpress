@@ -15,7 +15,7 @@ public class CountDownTimerCube : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CountdownText.color = Color.white;
+        CountdownText.color = Color.black;
         CurrentTime = StartingTime;
         if (dayManager == null)
         {

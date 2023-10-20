@@ -85,7 +85,7 @@ public class Package : MonoBehaviour, IPickupable
         // meshRenderer.material.color = Color.green;
         SFX.clip = SFX_CleansedCurse;
         SFX.Play();
-        PointCounter.Instance.AddScore(200);
+        
     }
     public void OnDrop()
     {

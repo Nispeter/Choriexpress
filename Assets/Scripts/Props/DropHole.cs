@@ -23,6 +23,7 @@ public class DropHole : MonoBehaviour
             if (!package.isCursed)
             {
                 Debug.Log("Paquete purificado ha sido lanzado por el agujero");
+                PointCounter.Instance.AddScore(200);
                 //TODO: Sumar puntos y llamar algún VFX + SFX
             }
             else

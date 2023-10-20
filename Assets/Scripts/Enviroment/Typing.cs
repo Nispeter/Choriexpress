@@ -93,7 +93,7 @@ public class Typing: MonoBehaviour
             }
             
         }
-        else if(curse!=3){
+        else if(curse!=3 && userInput.Length < currentWord.Length){
             if (userInput[userInput.Length-1]==currentWord[userInput.Length-1] && (curse == 1 || curse ==4)){
                 Recolor(userInput.Length-1, true);
                 

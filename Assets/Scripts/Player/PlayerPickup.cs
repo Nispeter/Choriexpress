@@ -75,6 +75,7 @@ public class PlayerPickup : MonoBehaviour
 
     private void DropHeldObject()
     {
+        if (heldObject == null) return;
         Transform objTransform = ((Component)heldObject).transform;
         objTransform.SetParent(null); // Remove the object's parent
 
