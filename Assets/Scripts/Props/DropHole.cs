@@ -17,7 +17,7 @@ public class DropHole : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Package")
+        if (other.gameObject.tag == "Package")
         {
             Package package = other.GetComponent<Package>();
             if (!package.isCursed)
