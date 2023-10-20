@@ -215,7 +215,7 @@ PrefabInstance:
     - target: {fileID: 5826420749429955581, guid: 35ff71ed5ba746945a41a6300808b404, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: -2144018569549634094, guid: 30ce65297413b7b45932caef77a2b237, type: 2}
     - target: {fileID: 6153091187148882791, guid: 35ff71ed5ba746945a41a6300808b404, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4102,6 +4102,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 324096366}
   - {fileID: 1324910480}
   - {fileID: 119717253}
   - {fileID: 1909589539}
@@ -4109,7 +4110,6 @@ RectTransform:
   - {fileID: 8684242344528318626}
   - {fileID: 752407157}
   - {fileID: 771531021}
-  - {fileID: 324096366}
   - {fileID: 2060750200}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5642,7 +5642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1324910480
 RectTransform:
   m_ObjectHideFlags: 0

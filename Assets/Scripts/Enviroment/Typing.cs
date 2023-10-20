@@ -139,7 +139,7 @@ public class Typing: MonoBehaviour
     {
         // Aquí puedes implementar la lógica para obtener una palabra aleatoria de tu lista de palabras.
         // Este es solo un ejemplo simple.
-        string[] wordList = { "iratze", "parabatai", "sanger", "nuntius", "catullus" };
+        string[] wordList = { "iratze", "parabatai", "sanger", "nuntius", "catullus", "philautia", "somno", "genki", "julius", "noxius"};
         int randomIndex = UnityEngine.Random.Range(0, wordList.Length);
         return wordList[randomIndex];
     }
