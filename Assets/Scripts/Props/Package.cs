@@ -35,8 +35,8 @@ public class Package : MonoBehaviour, IPickupable
         GetComponentInChildren<TMP_InputField>().text = "";
         curseUI.SetActive(false);
         DayManager.Instance.InGameUI.SetActive(true);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
         PointCounter.Instance.SubScore(100);
         SFX.clip = SFX_FailedCurse;
         SFX.Play();
@@ -54,8 +54,8 @@ public class Package : MonoBehaviour, IPickupable
             {
                 curseUI.SetActive(true);
                 DayManager.Instance.InGameUI.SetActive(false);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                //Cursor.lockState = CursorLockMode.None;
+                //Cursor.visible = true;
 
                 var inputField = GetComponentInChildren<TMP_InputField>();
                 if (inputField) inputField.Select();
@@ -88,8 +88,8 @@ public class Package : MonoBehaviour, IPickupable
     {
         curseUI.SetActive(false);
         DayManager.Instance.InGameUI.SetActive(true);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
         // MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
         // meshRenderer.material.color = Color.green;
         SFX.clip = SFX_CleansedCurse;

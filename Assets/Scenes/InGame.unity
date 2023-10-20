@@ -146,7 +146,7 @@ PrefabInstance:
     - target: {fileID: 5826420749429955581, guid: 35ff71ed5ba746945a41a6300808b404, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+      objectReference: {fileID: -2144018569549634094, guid: 30ce65297413b7b45932caef77a2b237, type: 2}
     - target: {fileID: 6153091187148882791, guid: 35ff71ed5ba746945a41a6300808b404, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2690,13 +2690,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628720700}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7876744, z: -0, w: 0.6160918}
+  m_LocalRotation: {x: -0, y: -0.7440554, z: -0, w: 0.66811794}
   m_LocalPosition: {x: -836.752, y: -556.97, z: -151.629}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1938467983}
-  m_LocalEulerAnglesHint: {x: 0, y: -103.937, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -96.156, z: 0}
 --- !u!1 &681404927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2760,9 +2760,9 @@ MonoBehaviour:
     liberarte de este tormento es pagarles 5 lucas, pero \xBFde d\xF3nde sacar ese
     dinero?\r\n\r\nUna oportunidad aparece ante ti: la empresa Choriexpress, sospechosamente
     similar a otra que conoces, necesita empleados. As\xED que te embarcas en una
-    aventura laboral en tu \"c\xF3moda y c\xE1lida\" habitaci\xF3n de trabajo (n\xF3tese
-    el sarcasmo). Los paquetes llegan uno tras otro, cada uno con sus propias maldiciones
-    que debes eliminar. Cuantas m\xE1s maldiciones saques, mayor ser\xE1 tu paga.\r\n\r\n\xBFLograr\xE1s
+    aventura laboral en tu \"c\xF3moda y c\xE1lida\" habitaci\xF3n de trabajo. Los
+    paquetes llegan uno tras otro, cada uno con sus propias maldiciones que debes
+    eliminar. Cuantas m\xE1s maldiciones saques, mayor ser\xE1 tu paga.\r\n\r\n\xBFLograr\xE1s
     ganar suficiente dinero para pagar a las gitanas y liberarte de la maldici\xF3n?
     Solo el tiempo lo dir\xE1. \xA1Buena suerte!"
   m_isRightToLeft: 0
@@ -4492,7 +4492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1324910480
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6338,6 +6338,7 @@ GameObject:
   - component: {fileID: 1938467985}
   - component: {fileID: 1938467986}
   - component: {fileID: 1938467987}
+  - component: {fileID: 1938467988}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6399,6 +6400,8 @@ MonoBehaviour:
   player: {fileID: 8446171858051927653}
   playerSpawnPosition: {fileID: 628720701}
   timer: {fileID: 829742213}
+  SFX: {fileID: 1938467988}
+  honk: {fileID: 8300000, guid: 31dcdd149e7eeae4fbe140a9983ec6f4, type: 3}
 --- !u!114 &1938467986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6427,6 +6430,102 @@ MonoBehaviour:
   scoreText: {fileID: 1217109936}
   scoreCanvas: {fileID: 752407156}
   looseCanvas: {fileID: 771531020}
+--- !u!82 &1938467988
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938467982}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2050854891
 GameObject:
   m_ObjectHideFlags: 0
@@ -9167,7 +9266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1215635358977548226, guid: b2527a4026cf4fd46be6fa374217e796, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1215635358977548226, guid: b2527a4026cf4fd46be6fa374217e796, type: 3}
       propertyPath: m_LocalRotation.w

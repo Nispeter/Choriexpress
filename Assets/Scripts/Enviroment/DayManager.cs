@@ -24,7 +24,7 @@ public class DayManager : MonoBehaviour
     {
         currentDay = 1;
         StartDay();
-        
+
     }
 
     private void Awake()
@@ -63,11 +63,22 @@ public class DayManager : MonoBehaviour
     }
 
     private void ResetPlayerPosition()
-    {   
+    {
         if (player != null)
         {
-            player.transform.position = playerSpawnPosition.position;
-            player.transform.rotation = Quaternion.identity;
+            CharacterController charController = player.GetComponent<CharacterController>();
+            if (charController != null)
+            {
+                charController.enabled = false; // disable character controller
+                player.transform.position = playerSpawnPosition.position;
+                player.transform.rotation = playerSpawnPosition.rotation;
+                charController.enabled = true; // enable character controller
+            }
+            else
+            {
+                player.transform.position = playerSpawnPosition.position;
+                player.transform.rotation = Quaternion.identity;
+            }
         }
         else
         {
