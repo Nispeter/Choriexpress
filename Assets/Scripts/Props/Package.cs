@@ -6,17 +6,17 @@ public class Package : MonoBehaviour, IPickupable
     public string type { get; set; }
     public bool isPickedUp { get; set; }
     private Rigidbody rb;
-    public bool isPickeable { get; set;  }
+    public bool isPickeable { get; set; }
     public bool isCursed { get; set; }
     public GameObject curseUI;
-    public TextMeshProUGUI curseText;  
+    public TextMeshProUGUI curseText;
     public AudioSource SFX;
     public AudioClip SFX_CleansedCurse;
     public AudioClip SFX_FailedCurse;
     public AudioClip SFX_PickUp;
     private void Start()
     {
-        
+
         type = "pickup";
         isPickeable = true;
         isCursed = true;
@@ -27,11 +27,12 @@ public class Package : MonoBehaviour, IPickupable
         }
     }
 
-    public void FailedCurse(){
+    public void FailedCurse()
+    {
         // MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
         // meshRenderer.material.color = Color.red;
-        Debug.Log("CURSE FAILED"); 
-        GetComponentInChildren<TMP_InputField>().text = ""; 
+        Debug.Log("CURSE FAILED");
+        GetComponentInChildren<TMP_InputField>().text = "";
         curseUI.SetActive(false);
         DayManager.Instance.InGameUI.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
@@ -39,30 +40,37 @@ public class Package : MonoBehaviour, IPickupable
         PointCounter.Instance.SubScore(100);
         SFX.clip = SFX_FailedCurse;
         SFX.Play();
-        
+
     }
 
     public void Interact()
     {
-        if (!isPickedUp)
+        if (!isPickedUp && SFX)
         {
             SFX.clip = SFX_PickUp;
             SFX.Play();
-            // 
-            if(isCursed){
+
+            if (isCursed && curseUI && DayManager.Instance)
+            {
                 curseUI.SetActive(true);
                 DayManager.Instance.InGameUI.SetActive(false);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                GetComponentInChildren<TMP_InputField>().Select();
-            }else{
+
+                var inputField = GetComponentInChildren<TMP_InputField>();
+                if (inputField) inputField.Select();
+            }
+            else
+            {
                 OnPickup();
             }
-
         }
         else
+        {
             OnDrop();
+        }
     }
+
 
     public void OnPickup()
     {
@@ -76,7 +84,8 @@ public class Package : MonoBehaviour, IPickupable
         isPickedUp = true;
 
     }
-    public void DeactivateCurse(){
+    public void DeactivateCurse()
+    {
         curseUI.SetActive(false);
         DayManager.Instance.InGameUI.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
@@ -85,7 +94,7 @@ public class Package : MonoBehaviour, IPickupable
         // meshRenderer.material.color = Color.green;
         SFX.clip = SFX_CleansedCurse;
         SFX.Play();
-        
+
     }
     public void OnDrop()
     {
