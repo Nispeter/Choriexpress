@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 1938467985}
     - target: {fileID: 782142857132566549, guid: 35ff71ed5ba746945a41a6300808b404, type: 3}
       propertyPath: StartingTime
-      value: 30
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2762415142798587092, guid: 35ff71ed5ba746945a41a6300808b404, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Mal de ojo del dia: Apurao '
+  m_text: 'Mal de ojo del dia: Taldos'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4290773247
-  m_fontColor: {r: 1, g: 0, b: 0.75342274, a: 1}
+  m_fontColor: {r: 1, g: 0.95325077, b: 0, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 2
   m_fontColorGradient:
@@ -1463,17 +1463,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "El aire estaba cargado de misterio aquel d\xEDa en la plaza. Una mirada,
-    un susurro, y las gitanas sellaron tu destino: te lanzaron un mal de ojo. Ahora
-    llevas una maldici\xF3n que no te permite estar en paz. La \xFAnica forma de
-    liberarte de este tormento es pagarles 5 lucas, pero \xBFde d\xF3nde sacar ese
-    dinero?\r\n\r\nUna oportunidad aparece ante ti: la empresa Choriexpress, sospechosamente
-    similar a otra que conoces, necesita empleados. As\xED que te embarcas en una
-    aventura laboral en tu \"c\xF3moda y c\xE1lida\" habitaci\xF3n de trabajo (n\xF3tese
-    el sarcasmo). Los paquetes llegan uno tras otro, cada uno con sus propias maldiciones
-    que debes eliminar. Cuantas m\xE1s maldiciones saques, mayor ser\xE1 tu paga.\r\n\r\n\xBFLograr\xE1s
-    ganar suficiente dinero para pagar a las gitanas y liberarte de la maldici\xF3n?
-    Solo el tiempo lo dir\xE1. \xA1Buena suerte!"
+  m_text: "La ma\xF1ana del segundo d\xEDa en Choriexpress comienza con un nuevo
+    paquete en tu \"c\xF3moda y c\xE1lida\" habitaci\xF3n de trabajo. Mientras lo
+    desempacas, te das cuenta de que este paquete es diferente a los anteriores.
+    Al abrirlo, una extra\xF1a niebla comienza a llenar la habitaci\xF3n, y sientes
+    una presencia misteriosa a tu alrededor. Te das cuenta de que este paquete contiene
+    una maldici\xF3n particularmente poderosa, cada vez te cuesta m\xE1s controlar
+    tu propio cuerpo.\r\n\r\nSin embargo a\xFAn no tienes suficiente para librarte
+    de la maldici\xF3n gitana, as\xED que intentas reponerte y te dispones a empezar
+    con otro d\xEDa de trabajo para la gloriosa Choriexpress, esas 5 lucas no se
+    van a sacar solas.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4679,7 +4678,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Mal de ojo del dia: Apurao '
+  m_text: 'Mal de ojo del dia: Al reves'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4689,7 +4688,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4290773247
-  m_fontColor: {r: 1, g: 0, b: 0.75342274, a: 1}
+  m_fontColor: {r: 1, g: 0, b: 0.17260075, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 2
   m_fontColorGradient:
@@ -5348,7 +5347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Mal de ojo del dia: Apurao '
+  m_text: 'Mal de ojo del dia: Saltarin'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6402,6 +6401,7 @@ MonoBehaviour:
   timer: {fileID: 829742213}
   SFX: {fileID: 1938467988}
   honk: {fileID: 8300000, guid: 31dcdd149e7eeae4fbe140a9983ec6f4, type: 3}
+  dailyCursePrefab: {fileID: 4079917984546795860, guid: e56f0f7b637a0634e917a2dcd44afc0d, type: 3}
 --- !u!114 &1938467986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6721,17 +6721,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "El aire estaba cargado de misterio aquel d\xEDa en la plaza. Una mirada,
-    un susurro, y las gitanas sellaron tu destino: te lanzaron un mal de ojo. Ahora
-    llevas una maldici\xF3n que no te permite estar en paz. La \xFAnica forma de
-    liberarte de este tormento es pagarles 5 lucas, pero \xBFde d\xF3nde sacar ese
-    dinero?\r\n\r\nUna oportunidad aparece ante ti: la empresa Choriexpress, sospechosamente
-    similar a otra que conoces, necesita empleados. As\xED que te embarcas en una
-    aventura laboral en tu \"c\xF3moda y c\xE1lida\" habitaci\xF3n de trabajo (n\xF3tese
-    el sarcasmo). Los paquetes llegan uno tras otro, cada uno con sus propias maldiciones
-    que debes eliminar. Cuantas m\xE1s maldiciones saques, mayor ser\xE1 tu paga.\r\n\r\n\xBFLograr\xE1s
-    ganar suficiente dinero para pagar a las gitanas y liberarte de la maldici\xF3n?
-    Solo el tiempo lo dir\xE1. \xA1Buena suerte!"
+  m_text: "Antes de que te des cuenta ya te encuentras en tu 3er d\xEDa de trbajo
+    (ya es el 3?) empiezas a ver cosas cada vez m\xE1s extra\xF1as, los paquetes,
+    \xBFse mueven? No. Dudas de tu cordura, la poca ventilaci\xF3n y las emisiones
+    mal\xE9ficas de los paquetes deben estar afect\xE1ndote, intentas no darle importancia
+    pero es complicado no creer que tu sanidad est\xE1 en declive cuando tienes que
+    perseguir un paquete por todo el s\xF3tano lugar de trabajo de la GLORIOSA Choriexpress.
+    \r\n\r\nIntentando no pensar mucho en la situaci\xF3n en la que te encuentras
+    para mantener el poco juicio que a\xFAn conservas te enfocas en purificar los
+    paquetes y sobrevivir al d\xEDa, cada peso te deja m\xE1s cerca de liberarte
+    de la maldici\xF3n, despu\xE9s de pagarle a la gitana todo se arreglar\xE1 verdad?
+    \r\n\r\nV\u0335\u033F\u0305E\u0336\u030D\u0315R\u0334\u034C\u0343D\u0337\u0310\u0314A\u0334\u0308\u035DD\u0337\u0304\u0315?\u0337\u0314?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13000,8 +13000,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 4514759161325248406}
   - {fileID: 1223511250}
+  - {fileID: 916499637}
   - {fileID: 789298377}
   - {fileID: 1932655542}
   - {fileID: 600783954}
   - {fileID: 1065627648}
-  - {fileID: 916499637}

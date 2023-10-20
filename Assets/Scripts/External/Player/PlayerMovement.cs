@@ -18,11 +18,11 @@ public class FirstPersonMovement : MonoBehaviour
     private Vector3 velocity;
     private float _defaultSpeed;
     private int _jumpsRemainig;
+    private bool invertControls = false;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
-        ;
         _defaultSpeed = movementSpeed;
         _jumpsRemainig = airJumps;
     }
@@ -30,8 +30,13 @@ public class FirstPersonMovement : MonoBehaviour
     public void HandleMovement(float horizontalInput, float verticalInput, bool isSprinting, bool isWalking)
     {
         Vector3 moveDirection = (cameraTransform.forward.normalized * verticalInput + cameraTransform.right.normalized * horizontalInput);
-        moveDirection.y = 0f;
 
+        if (invertControls) // Check for inverted controls
+        {
+            moveDirection *= -1;
+        }
+
+        moveDirection.y = 0f;
         if (isSprinting)
         {
             movementSpeed = 2f * _defaultSpeed;
@@ -49,6 +54,15 @@ public class FirstPersonMovement : MonoBehaviour
         ApplyGravity();
 
         controller.Move((moveVelocity + velocity) * Time.deltaTime);
+    }
+    public void ToggleInvertedControls()
+    {
+        invertControls = !invertControls;
+    }
+
+    public void Jump()
+    {
+        velocity.y = Mathf.Sqrt(5 * -2f * gravity);
     }
 
     public void HandleJump()

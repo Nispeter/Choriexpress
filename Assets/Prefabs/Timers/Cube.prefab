@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91cddbf0d2dff7349838448966ddd2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingTime: 30
+  StartingTime: 60
   dayManager: {fileID: 0}
   CountdownText: {fileID: 6877949137578995874}
   SFX: {fileID: 1203696944092850683}

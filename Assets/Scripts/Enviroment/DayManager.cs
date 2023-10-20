@@ -18,10 +18,15 @@ public class DayManager : MonoBehaviour
     public CountDownTimerCube timer;
     public AudioSource SFX;
     public AudioClip honk;
-    //public GameObject dailyCursePrefab; 
+    public GameObject dailyCursePrefab; 
+
+    private GameObject curseInstance;
+    private DailyCurse dailyCurse;
 
     private void Start()
     {
+        curseInstance = Instantiate(dailyCursePrefab);
+        dailyCurse = curseInstance.GetComponent<DailyCurse>();
         currentDay = 1;
         StartDay();
 
@@ -104,7 +109,7 @@ public class DayManager : MonoBehaviour
         {
             timer.ResetTimer(); // Assuming you have a ResetTimer method in CountDownTimerCube
         }
-
+        dailyCurse.StopCurrentCurse();
         if (currentDay < maxDays)
         {
             currentDay++;
@@ -130,9 +135,8 @@ public class DayManager : MonoBehaviour
         TimeManagerScript.Instance.PauseGame();
         CurrentContext = DailyContexts[currentDay - 1];
         CurrentContext.SetActive(true);
-        // GameObject curseInstance = Instantiate(dailyCursePrefab);
-        // DailyCurse dailyCurse = curseInstance.GetComponent<DailyCurse>();
-        // if (dailyCurse)
-        //     dailyCurse.day = currentDay;
+        
+        if (dailyCurse)
+            dailyCurse.ActivateCurse(currentDay);
     }
 }

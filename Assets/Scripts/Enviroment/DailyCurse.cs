@@ -4,30 +4,33 @@ using System.Collections;
 
 public class DailyCurse : MonoBehaviour
 {
-    /*public int day = 1;
-    private FirstPersonController playerController;
+    public int day = 1;
+    private FirstPersonMovement playerController;
+    private Coroutine currentCurse; // To track the current running curse
 
     private void Start()
     {
-        playerController = FindObjectOfType<FirstPersonController>();
+        playerController = FindObjectOfType<FirstPersonMovement>();
         if (!playerController)
             Debug.LogError("FirstPersonController not found!");
-
-        ActivateCurse();
     }
 
-    private void ActivateCurse()
+    public void ActivateCurse(int day)
     {
-        switch(day)
+        Debug.Log("curse " + day + "activated");
+        if (currentCurse != null) // Stop the previous curse if there was one
+            StopCoroutine(currentCurse);
+
+        switch (day)
         {
             case 1:
-                StartCoroutine(PlayerJumpCurse());
+                currentCurse = StartCoroutine(PlayerJumpCurse());
                 break;
             case 2:
-                StartCoroutine(PackageMoveCurse());
+                currentCurse = StartCoroutine(InvertControlsCurse());
                 break;
             case 3:
-                StartCoroutine(PlayerJumpCurse());  
+                currentCurse = StartCoroutine(PackageMoveCurse());
                 break;
         }
     }
@@ -36,22 +39,48 @@ public class DailyCurse : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(5, 10));  
-            playerController.Jump(); 
+            yield return new WaitForSeconds(Random.Range(5, 10));
+            playerController.Jump();
         }
+    }
+
+    IEnumerator InvertControlsCurse()
+    {
+        playerController.ToggleInvertedControls();
+        yield return null;
     }
 
     IEnumerator PackageMoveCurse()
     {
+        float MRF = 10f;
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(5, 10));
+            yield return new WaitForSeconds(Random.Range(1, 2));
             GameObject[] packages = GameObject.FindGameObjectsWithTag("Package");
             if (packages.Length > 0)
             {
                 GameObject randomPackage = packages[Random.Range(0, packages.Length)];
-                randomPackage.transform.position += new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
+                Rigidbody rb = randomPackage.GetComponent<Rigidbody>();
+                if (rb)
+                {
+                    Vector3 randomForce = new Vector3(Random.Range(-MRF, MRF), Random.Range(-MRF, MRF), Random.Range(-MRF, MRF));
+                    rb.AddForce(randomForce, ForceMode.Impulse); // Apply a sudden force, using the Impulse mode
+                }
             }
         }
-    }*/
+    }
+
+    public void StopCurrentCurse()
+    {
+        if (currentCurse != null)
+        {
+            StopCoroutine(currentCurse);
+            currentCurse = null;
+            Debug.Log("Curse stopped");
+        }
+        if (day == 2)
+        {
+            playerController.ToggleInvertedControls(); // Ensure the controls are reverted if day is 2
+        }
+    }
 }
