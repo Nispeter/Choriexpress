@@ -58,7 +58,7 @@ public class Package : MonoBehaviour, IPickupable
                 //Cursor.visible = true;
 
                 var inputField = GetComponentInChildren<TMP_InputField>();
-                if (inputField) inputField.Select();
+                if (inputField) { inputField.ActivateInputField(); inputField.Select(); }
             }
             else
             {

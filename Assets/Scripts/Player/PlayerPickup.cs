@@ -6,7 +6,7 @@ public class PlayerPickup : MonoBehaviour
 {
     public float interactDistance = 2.0f;
     public Transform holdPosition; // A transform indicating where in front of the camera the object should be held.
-    private IPickupable heldObject;
+    public IPickupable heldObject { get; private set; }
     private Camera mainCam;
 
     void Start()
@@ -73,7 +73,7 @@ public class PlayerPickup : MonoBehaviour
         }
     }
 
-    private void DropHeldObject()
+    public void DropHeldObject()
     {
         if (heldObject == null) return;
         Transform objTransform = ((Component)heldObject).transform;
