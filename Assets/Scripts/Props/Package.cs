@@ -14,10 +14,11 @@ public class Package : MonoBehaviour, IPickupable
     public AudioClip SFX_CleansedCurse;
     public AudioClip SFX_FailedCurse;
     public AudioClip SFX_PickUp;
+    public bool isOnTable = false;
     private void Start()
     {
 
-        type = "pickup";
+        type = "Tomar paquete";
         isPickeable = true;
         isCursed = true;
         rb = GetComponent<Rigidbody>();
@@ -47,10 +48,9 @@ public class Package : MonoBehaviour, IPickupable
     {
         if (!isPickedUp && SFX)
         {
-            SFX.clip = SFX_PickUp;
-            SFX.Play();
+            
 
-            if (isCursed && curseUI && DayManager.Instance)
+            if (isCursed && curseUI && DayManager.Instance && isOnTable)
             {
                 curseUI.SetActive(true);
                 DayManager.Instance.InGameUI.SetActive(false);
@@ -62,6 +62,8 @@ public class Package : MonoBehaviour, IPickupable
             }
             else
             {
+                SFX.clip = SFX_PickUp;
+                SFX.Play();
                 OnPickup();
             }
         }

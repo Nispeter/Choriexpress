@@ -206,7 +206,7 @@ PrefabInstance:
       objectReference: {fileID: 1938467985}
     - target: {fileID: 782142857132566549, guid: 35ff71ed5ba746945a41a6300808b404, type: 3}
       propertyPath: StartingTime
-      value: 15
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2762415142798587092, guid: 35ff71ed5ba746945a41a6300808b404, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -8584,6 +8584,103 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1215635358977548226, guid: b2527a4026cf4fd46be6fa374217e796, type: 3}
   m_PrefabInstance: {fileID: 4340327031043082282}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2083728085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2083728086}
+  - component: {fileID: 2083728087}
+  - component: {fileID: 2083728088}
+  - component: {fileID: 2083728089}
+  m_Layer: 0
+  m_Name: snapper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2083728086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083728085}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.088134825, z: 0.0000000037252899, w: 0.99610853}
+  m_LocalPosition: {x: 0.00011, y: 0, z: 0.00441}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3423304283670054534}
+  m_LocalEulerAnglesHint: {x: 0, y: 10.113, z: 0}
+--- !u!65 &2083728087
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083728085}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0077951606, y: 0.019824302, z: 0.0039064423}
+  m_Center: {x: 0.0001173101, y: 0.000018804456, z: -0.00019281128}
+--- !u!114 &2083728088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083728085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9954db54f627a034384b69daef992f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapOffsetX: 0
+  snapOffsetY: 0.21
+  snapOffsetZ: 0
+--- !u!54 &2083728089
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083728085}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &2097236515 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 424b5d085948c1244923826b43ff93f3, type: 3}
@@ -10748,7 +10845,8 @@ Transform:
   m_LocalPosition: {x: -2.7329552, y: -0.32192528, z: -0.097518764}
   m_LocalScale: {x: 129.41245, y: 39.186115, z: 59.305267}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2083728086}
   m_Father: {fileID: 400531174949230199}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3424144664676610304
@@ -14765,7 +14863,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1768833555227875323, guid: 3e706ba4c66f13b4eb282052941cc7f6, type: 3}
 --- !u!114 &8726012879345829307
