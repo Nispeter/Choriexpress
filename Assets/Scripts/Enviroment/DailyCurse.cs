@@ -20,7 +20,7 @@ public class DailyCurse : MonoBehaviour
         Debug.Log("curse " + day + "activated");
         if (currentCurse != null) // Stop the previous curse if there was one
             StopCoroutine(currentCurse);
-
+        this.day = day;
         switch (day)
         {
             case 1:
